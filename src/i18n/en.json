@@ -1,0 +1,64 @@
+{
+    "local": {
+        "signup": {
+            "labels": {
+                "joinUs": "Join Us!",
+                "accountOpeningPrompt": "To begin this journey, tell us what type of account you'd be opening.",
+                "individual": "Individual",
+                "individualSubtitle": "Personal account to manage all you activities.",
+                "businessSubtitle": "Own or belong to a company, this is for you.",
+                "business": "Business",
+                "back": "Back",
+                "alreadyHaveAnAccount": "Already have an account?",
+                "signIn": "Sign In",
+                "registerIndividualAccount": "Register Individual Account!",
+                "fullName": "Your fullname*",
+                "country": "Country of residence",
+                "emailAddress": "Email Address",
+                "createPassword": "Create Password",
+                "phoneNumber": "Phone number",
+                "address": "Your address",
+                "countryOfResidence": "Country of residence",
+                "bvn": "Bank verification number (BVN)",
+                "completeProfile": "Complete Your Profile!",
+                "industryRegulation": "For the purpose of industry regulation, your details are required.",
+                "agreeToTerms": "I agree to terms & conditions",
+                "registerWithGoogle": "Register with Google"
+            },
+            "placeholders": {
+                "fullName": "Enter your full name",
+                "emailAddress": "Enter your email address",
+                "password": "Create a password",
+                "phoneNumber": "Enter phone number",
+                "address": "Enter your address",
+                "country": "Please select",
+                "bvn": "Enter your BVN"
+            },
+            "steps": {
+                "step": "Step",
+                "personalInfo": "Personal Info",
+                "residencyInfo": "Residency Info",
+                "bankVerification": "Bank Verification"
+            },
+            "buttons": {
+                "back": "Back",
+                "saveAndContinue": "Save & Continue",
+                "complete": "Complete Registration",
+                "registerAccount": "Register Account",
+                "continueWithGoogle": "Continue with Google"
+            },
+            "validation": {
+                "required": "This field is required",
+                "email": "Please enter a valid email",
+                "passwordMin": "Password must be at least 8 characters",
+                "terms": "You must accept the terms and conditions",
+                "bvnFormat": "BVN must be 10 digits"
+            },
+            "messages": {
+                "securityNote": "Your info is safely secured",
+                "registrationSuccess": "Registration completed successfully",
+                "registrationError": "An error occurred during registration"
+            }
+        }
+    }
+}
