@@ -32,11 +32,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, provide, watch } from 'vue'
+import { computed, provide, watch } from 'vue'
 import { Form } from 'vee-validate'
 import { useRouter } from 'vue-router'
 import Button from 'primevue/button'
-import { useI18n } from 'vue-i18n'  // Add this import
+import { useI18n } from 'vue-i18n'  
+import { useStepStore } from '@/stores/stepStore'// Add this import
 const { t } = useI18n()
 
 const props = defineProps({
@@ -48,25 +49,22 @@ const props = defineProps({
 
 const emit = defineEmits(['submit', 'step-change'])
 const router = useRouter()
+const { stepCounter, currentStepIdx, incrementStep, isLastStep } = useStepStore()
 
 // Step management
-const currentStepIdx = ref(0)
-const stepCounter = ref(0)
+
+
 
 // Provide values to child components
 provide('STEP_COUNTER', stepCounter)
 provide('CURRENT_STEP_INDEX', currentStepIdx)
 
-// Computed properties
 const totalSteps = computed(() => stepCounter.value)
 
 const isFirstStep = computed(() => {
     return currentStepIdx.value === 0
 })
 
-const isLastStep = computed(() => {
-    return currentStepIdx.value === totalSteps.value - 1
-})
 
 
 const currentSchema = computed(() => {
@@ -89,8 +87,8 @@ const stepTitle = computed(() => {
 
 const onSubmit = (async (stepValues: any) => {
     try {
-        if (!isLastStep.value) {
-            currentStepIdx.value++
+        if (!isLastStep(totalSteps.value)) {
+            incrementStep();
             return
         }
         console.log(stepValues)

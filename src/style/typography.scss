@@ -4,6 +4,12 @@
   font-weight: 700;
   line-height: 36.31px;
 }
+.heading-regular,
+%heading-regular {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.78px;
+}
 
 .body-large,
 %body-large {
@@ -19,6 +25,18 @@
   line-height: 19.36px;
 }
 
+.body-normal,
+%body-normal {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.body-regular-bold,
+%body-regular-bold {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.36px;
+}
 
 .body-small,
 %body-small {

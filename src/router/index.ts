@@ -7,13 +7,42 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'accountTypeView',
-      component: loadView(routes.unauthenticated.accountTypeView),
+      name: 'sessionLayout',
+      component: loadView(routes.unauthenticated.sessionLayout),
+      children: [
+        {
+          path: '/',
+          name: 'accountTypeView',
+          component: loadView(routes.unauthenticated.accountTypeView),
+        },
+        {
+          path: 'registration',
+          name: 'registrationView',
+          component: loadView(routes.unauthenticated.registrationView),
+        },
+        {
+          path: 'login',
+          name: 'loginView',
+          component: loadView(routes.unauthenticated.loginView),
+        },
+        {
+          path: 'forget-password',
+          name: 'forgetPassword',
+          component: loadView(routes.unauthenticated.forgetPasswordView),
+        },
+      ],
     },
     {
-      path: '/registration',
-      name: 'registrationView',
-      component: loadView(routes.unauthenticated.registrationView),
+      path: '/dashboard',
+      name: 'dashboard',
+      component: loadView(routes.authenticated.dashboardView),
+      children: [
+        {
+          path: '',
+          name: 'feedView',
+          component: loadView(routes.authenticated.feedView),
+        },
+      ],
     },
   ],
 })

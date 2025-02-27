@@ -5,24 +5,20 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
+import { useStepStore } from '@/stores/stepStore'
 
-const props = defineProps({
-    errors: {
-        type: Object,
-        default: () => ({})
-    }
-})
 
 // Get the step management values from parent FormWizard
-const stepCounter = inject('STEP_COUNTER') as { value: number }
-const currentStepIdx = inject('CURRENT_STEP_INDEX') as { value: number }
 
+const { stepCounter, currentStepIdx } = useStepStore()
 //  step ID
+
+
 const stepId = ref(0)
 
 onMounted(() => {
-    stepId.value = stepCounter.value++
+    stepId.value = stepCounter.value++; // Update stepId using the store
 })
 
 // Determine if this step should be shown

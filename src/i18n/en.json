@@ -1,5 +1,10 @@
 {
     "local": {
+        "common": {
+            "like": "Like",
+            "comment": "Comment",
+            "share": "Share"
+        },
         "signup": {
             "labels": {
                 "joinUs": "Join Us!",
@@ -58,6 +63,46 @@
                 "securityNote": "Your info is safely secured",
                 "registrationSuccess": "Registration completed successfully",
                 "registrationError": "An error occurred during registration"
+            }
+        },
+        "login": {
+            "labels": {
+                "login": "Login",
+                "signInPrompt": "Please sign in to continue",
+                "password": "Password",
+                "forgotPassword": "Forgot Password"
+            },
+            "buttons": {
+                "login": "Login"
+            }
+        },
+        "forgetPassword": {
+            "labels": {
+                "forgetPassword": "Forget Password",
+                "forgetPasswordPrompt": "Please enter the email you would like your password reset information sent to ",
+                "backToLogin": "Back To Login"
+            },
+            "buttons": {
+                "requestResetLink": "Request Reset Link"
+            }
+        },
+        "feedView": {
+            "labels": {
+                "contributors": "Contributors",
+                "contacts": "Contacts",
+                "createStory": "Create Story",
+                "media": "Media",
+                "events": "Events",
+                "article": "Write Article"
+            },
+            "buttons": {
+                "viewAll": "View All",
+                "viewProfile": "View Profile",
+                "follow": "Follow",
+                "unfollow": "Unfollow"
+            },
+            "placeholders": {
+                "createPost": "What's on your mind?"
             }
         }
     }

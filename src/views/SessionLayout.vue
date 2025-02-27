@@ -1,11 +1,12 @@
 <template>
     <div class="flex h-screen">
-        <div class="relative w-6 hidden md:block">
+        <div class="relative w-6 hidden lg:block">
             <img :src="frameImage" class="frame" />
             <img :src="bitsolLogo" class="logo" />
         </div>
-        <div class="w-full md:w-6">
-            <slot name="right-section"></slot>
+        <div class="w-full lg:w-6">
+            <RouterView/>
+           
         </div>
     </div>
 </template>
@@ -13,6 +14,7 @@
 <script setup lang="ts">
 import frameImage from '@/assets/images/Frame.png'
 import bitsolLogo from '@/assets/images/BitsolLogo.png' 
+import  {RouterView} from 'vue-router';
 </script>
 
 <style lang="scss" scoped>
