@@ -1,11 +1,10 @@
 <template>
     <div>
-        <SessionLayout>
-            <template #right-section>
+      
                 <div class="account-type-view ">
                     <p class="text-right px-3 pt-3 sm:px-5 md:px-8 atv-al atv-already-have-account">
                         {{ $t('local.signup.labels.alreadyHaveAnAccount') }}
-                        <span class="atv-sign-in">{{ $t('local.signup.labels.signIn') }}</span>
+                        <span class="atv-sign-in" @click="gotoSignInScreen">{{ $t('local.signup.labels.signIn') }}</span>
                     </p>
                     <div class="account-content">
                         <div class="flex flex-column gap-3 px-3 sm:px-5 md:px-8">
@@ -28,12 +27,11 @@
                         </div>
                     </div>
                 </div>
-            </template>
-        </SessionLayout>
+         
     </div>
 </template>
 <script setup lang="ts">
-import SessionLayout from '@/components/SessionLayout.vue';
+
 import IconPolygon from '@/components/icons/IconPolygon.vue'
 import IconPolygon1 from '@/components/icons/IconPolygon1.vue'
 import Card from 'primevue/card';
@@ -61,6 +59,11 @@ const signupOptions = [
 const handleCardClick = (route: string) => {
     router.push(route);
 };
+
+const gotoSignInScreen = () => {
+    router.push('/login');
+};
+
 </script>
 <style lang="scss" scoped>
 @use '@/style/theme.scss' as *;
@@ -107,7 +110,8 @@ const handleCardClick = (route: string) => {
 
 .atv-sign-in {
     @extend %body-large;
-    color: var(--primary)
+    color: var(--primary);
+    cursor: pointer
 }
 
 .atv-card-subtile {
