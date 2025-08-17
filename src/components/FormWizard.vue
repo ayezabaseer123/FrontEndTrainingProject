@@ -40,12 +40,14 @@ import { useI18n } from 'vue-i18n'
 import { useStepStore } from '@/stores/stepStore'// Add this import
 const { t } = useI18n()
 
-const props = defineProps({
-    validationSchema: {
-        type: Array,
-        required: true
-    }
-})
+interface ValidationSchema {
+    [key: string]: unknown;
+}
+
+const props = defineProps<{
+    validationSchema: ValidationSchema[]
+}>();
+
 
 const emit = defineEmits(['submit', 'step-change'])
 const router = useRouter()
@@ -85,7 +87,7 @@ const stepTitle = computed(() => {
 })
 
 
-const onSubmit = (async (stepValues: any) => {
+const onSubmit = (async (stepValues: Record<string, unknown>) => {
     try {
         if (!isLastStep(totalSteps.value)) {
             incrementStep();
