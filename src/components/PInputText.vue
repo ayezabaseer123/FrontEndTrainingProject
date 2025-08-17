@@ -4,8 +4,8 @@
             <label :for="id" class="input-text-label">{{ label }}</label>
 
             <InputText :id="id" :type="type" :value="modelValue"
-                @input="$emit('update:modelValue', $event.target.value)" :placeholder="placeholder" v-bind="$attrs"
-                :invalid="error" :pt="{
+                @input="handleInput" :placeholder="placeholder" v-bind="$attrs"
+                :invalid="!!error" :pt="{
                     root: { class: 'input-text' }
 
                 }" />
