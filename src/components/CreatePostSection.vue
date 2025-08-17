@@ -39,9 +39,9 @@ const postText = ref('')
 const { t } = useI18n()
 
 const actionItems = [
-  { icon: '$media', text: t('local.feedView.labels.media') },
-  { icon: '$events', text: t('local.feedView.labels.events') },
-  { icon: '$article', text: t('local.feedView.labels.article') }
+  { icon: '$media' as const, text: t('local.feedView.labels.media') },
+  { icon: '$events' as const, text: t('local.feedView.labels.events') },
+  { icon: '$article' as const, text: t('local.feedView.labels.article') }
 ];
 </script>
 
