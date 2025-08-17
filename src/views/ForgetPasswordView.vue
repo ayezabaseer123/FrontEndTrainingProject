@@ -11,8 +11,8 @@
       <Divider class="rv-custom-width" />
       <Form :validation-schema="validationSchemas "  v-slot="{  meta }">
           <Field v-slot="{ field, errorMessage }" name="email">
-              <PTextInput v-bind="field" id="email" :label="$t('local.signup.labels.emailAddress')" type="email"
-                  :error="errorMessage" :placeholder="$t('local.signup.placeholders.emailAddress')" />
+              <PInputText v-bind="field" id="email" :label="$t('local.signup.labels.emailAddress')" type="email"
+                  :error="errorMessage" :placeholder="$t('local.signup.placeholders.emailAddress')" :modelValue="field.value" />
           </Field>
           <Button class="p-button-primary w-full rv-custom-width mt-3" :disabled="!meta.valid" type="submit">
                   {{  $t('local.forgetPassword.buttons.requestResetLink')
@@ -32,7 +32,7 @@
   
   import Divider from 'primevue/divider';
   import { Form ,Field} from 'vee-validate'
-  import PTextInput from '@/components/PInputText.vue';
+  import PInputText from '@/components/PInputText.vue';
   import Button from 'primevue/button'
   import { validationSchemas } from '@/types/forgetPassword'
   import { useRouter } from 'vue-router';

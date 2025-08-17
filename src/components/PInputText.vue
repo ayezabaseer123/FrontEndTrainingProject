@@ -18,7 +18,7 @@
             <label :for="id" class="input-text-label">{{ label }}</label>
             <IconField>
                 <InputText :id="id" :type="showPassword ? 'text' : type" :value="modelValue"
-                   @input="handleInput" :placeholder="placeholder" v-bind="$attrs"
+                    @input="handleInput" :placeholder="placeholder" v-bind="$attrs"
                     :invalid="!!error" :pt="{
                         root: { class: 'input-text' }
 

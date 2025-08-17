@@ -7,9 +7,9 @@
         <div class="flex flex-column gap-3 lg:rv-custom-width mt-3">
             <!-- ... step 3 fields ... -->
             <Field v-slot="{ field, meta, errorMessage }" name="bvn">
-                <PTextInput id="bvn" v-bind="field" :label="$t('local.signup.labels.bvn')"
+                <PInputText id="bvn" v-bind="field" :label="$t('local.signup.labels.bvn')"
                     :error="meta.touched && meta.dirty ? errorMessage : undefined"
-                    :placeholder="$t('local.signup.placeholders.bvn')" />
+                    :placeholder="$t('local.signup.placeholders.bvn')" :modelValue="field.value" />
             </Field>
         </div>
     </div>
@@ -17,7 +17,8 @@
 </template>
 <script setup lang="ts">
 import { Field } from 'vee-validate';
-import PTextInput from '@/components/PInputText.vue';
+import PInputText from '@/components/PInputText.vue';
+import Divider from 'primevue/divider';
 
 </script>
 <style scoped lang="scss">
