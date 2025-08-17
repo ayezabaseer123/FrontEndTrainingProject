@@ -18,11 +18,11 @@
             <label :for="id" class="input-text-label">{{ label }}</label>
             <IconField>
                 <InputText :id="id" :type="showPassword ? 'text' : type" :value="modelValue"
-                    @input="$emit('update:modelValue', $event.target.value)" :placeholder="placeholder" v-bind="$attrs"
-                    :invalid="error" :pt="{
+                   @input="handleInput" :placeholder="placeholder" v-bind="$attrs"
+                    :invalid="!!error" :pt="{
                         root: { class: 'input-text' }
 
-                    }" />
+                    }"  />
                 <span v-if="type === 'password'" class="password-toggle" @click="showPassword = !showPassword">
                     {{ showPassword ? 'Hide' : 'Show' }}
                 </span>
@@ -46,38 +46,28 @@ import InputIcon from 'primevue/inputicon';
 import { ref } from 'vue';
 const showPassword = ref(false);
 
-defineProps({
-    id: {
-        type: String,
-        required: true
-    },
-    label: {
-        type: String,
-        required: true
-    },
-    modelValue: {
-        type: String,
-        default: ''
-    },
-    placeholder: {
-        type: String,
-        default: ''
-    },
-    type: {
-        type: String,
-        default: 'text'
-    },
-    error: {
-        type: String,
-        default: ''
-    },
-    iconField: {
-        type: Boolean,
-        default: false
-    }
-});
+interface Props {
+    id: string;
+    label: string;
+    modelValue: string;
+    placeholder?: string;
+    type?: string;
+    error?: string;
+    iconField?: boolean;
+}
 
-defineEmits(['update:modelValue']);
+defineProps<Props>();
+
+const emit = defineEmits<{
+    'update:modelValue': [value: string]
+}>();
+
+const handleInput = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    if (target) {
+        emit('update:modelValue', target.value);
+    }
+};
 </script>
 
 <style scoped lang='scss'>
