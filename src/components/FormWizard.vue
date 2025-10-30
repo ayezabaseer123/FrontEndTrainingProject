@@ -30,7 +30,7 @@
       <slot :errors="errors" />
 
       <Button
-        class="p-button-primary w-full rv-custom-width mt-3"
+        class="w-full rv-custom-width mt-3"
         :disabled="!meta.valid"
         type="submit"
       >

@@ -23,10 +23,8 @@
                     </Field>
                     <p class="lg-forgot-password" @click="goToForgetPasswordScreen">{{
                         $t('local.login.labels.forgotPassword') }}</p>
-                    <Button class="p-button-primary w-full rv-custom-width mt-3" :disabled="!meta.valid" type="submit">
-                        {{ $t('local.login.buttons.login')
-
-                        }}
+                    <Button class="w-full rv-custom-width mt-3" :disabled="!meta.valid" type="submit">
+                        {{ $t('local.login.buttons.login') }}
                     </Button>
                 </Form>
             </div>

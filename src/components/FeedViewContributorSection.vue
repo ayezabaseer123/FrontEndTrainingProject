@@ -1,7 +1,7 @@
 <template>
 
     <div class="feed-view-contributor-section">
-        <Card :pt="{ root: { class: 'feed-view-contributor w-full' } }">
+        <Card class="w-full">
             <template #content>
                 <h1 class="heading-regular">{{ $t('local.feedView.labels.contributors') }}</h1>
                 <AvatarGroup>
@@ -29,11 +29,5 @@ const images=['Contributor1.png', 'Contributor2.png', 'Contributor3.png', 'Contr
 
 <style scoped lang="scss">
 @use '@/style/theme.scss' as *;
-
-.feed-view-contributor {
-    border-radius: 12px;
-    padding: 20px 16px;
-    background-color: var(--surfaces-default)
-}
 
 </style>

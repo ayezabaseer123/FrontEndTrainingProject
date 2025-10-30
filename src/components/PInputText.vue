@@ -5,10 +5,7 @@
 
             <InputText :id="id" :type="type" :value="modelValue"
                 @input="handleInput" :placeholder="placeholder" v-bind="$attrs"
-                :invalid="!!error" :pt="{
-                    root: { class: 'input-text' }
-
-                }" />
+                :invalid="!!error" />
 
             <small class="error">{{ error }}</small>
 
@@ -19,10 +16,7 @@
             <IconField>
                 <InputText :id="id" :type="showPassword ? 'text' : type" :value="modelValue"
                     @input="handleInput" :placeholder="placeholder" v-bind="$attrs"
-                    :invalid="!!error" :pt="{
-                        root: { class: 'input-text' }
-
-                    }"  />
+                    :invalid="!!error" />
                 <span v-if="type === 'password'" class="password-toggle" @click="showPassword = !showPassword">
                     {{ showPassword ? 'Hide' : 'Show' }}
                 </span>
@@ -75,6 +69,7 @@ const handleInput = (event: Event) => {
 
 :deep(.p-inputtext) {
     width: 100%;
+    padding: 0.75rem 1.25rem;
 }
 
 .input-text-label {
@@ -86,35 +81,18 @@ const handleInput = (event: Event) => {
     right: 10px;
 }
 
-
-.input-text {
-    border: 1px solid var(--text-secondary) !important;
-    border-radius: 6px;
-    padding: 16px 20px;
-
-    &:hover,
-    &:focus,
-    &:focus-visible,
-    &:active {
-        border-color: var(--primary) !important;
-        box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
-
-    }
-
-    &:invalid {
-        border-color: red !important
-    }
-}
-
 .password-toggle {
     @extend %caption-regular;
     position: absolute;
     right: 10px;
-    top: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
+    color: var(--p-text-muted-color);
+    z-index: 1;
 }
 
 .error {
-    color: red;
+    color: var(--p-red-500);
 }
 </style>

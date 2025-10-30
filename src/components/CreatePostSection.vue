@@ -1,5 +1,5 @@
 <template>
-  <Card :pt="{ root: { class: 'card-root w-full' } }">
+  <Card class="w-full">
     <template #content>
       <div class="post-input-section">
         <Avatar 
@@ -47,12 +47,6 @@ const actionItems = [
 
 <style scoped lang="scss">
 @use '@/style/theme.scss' as *;
-
-.card-root {
-  border-radius: 12px;
-  padding: 20px 16px;
-  background-color: var(--surfaces-default);
-}
 
 .post-input-section {
   display: flex;

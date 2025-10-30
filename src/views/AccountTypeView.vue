@@ -12,7 +12,7 @@
                             <p class="opening-prompt text-center sm:text-left">{{
                                 $t('local.signup.labels.accountOpeningPrompt') }}</p>
                             <Card v-for="item in signupOptions" :key="item.type"
-                                :pt="{ root: { class: 'card-root w-full' } }" @click="handleCardClick(item.route)">
+                                class="card-root w-full" @click="handleCardClick(item.route)">
                                 <template #content>
                                     <div class="card-content">
                                         <component :is="item.icon" />
@@ -90,16 +90,14 @@ const gotoSignInScreen = () => {
 }
 
 .card-root {
-    box-shadow: 0px 2px 14px 1px rgba(0, 0, 0, 0.06);
-    border-radius: 6px;
-    padding: 26px;
     cursor: pointer;
+    transition: border-color 0.2s;
 
     &:hover,
     &:focus,
     &:focus-visible,
     &:active {
-        border: 1px solid var(--primary);
+        border-color: var(--primary);
     }
 }
 
