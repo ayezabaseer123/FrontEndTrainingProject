@@ -28,6 +28,6 @@ const images=['Contributor1.png', 'Contributor2.png', 'Contributor3.png', 'Contr
 </script>
 
 <style scoped lang="scss">
-@use '@/style/theme.scss' as *;
+
 
 </style>
