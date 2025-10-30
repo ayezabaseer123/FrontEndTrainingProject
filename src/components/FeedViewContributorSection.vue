@@ -6,7 +6,7 @@
                 <h1 class="heading-regular">{{ $t('local.feedView.labels.contributors') }}</h1>
                 <AvatarGroup>
                     
-                        <Avatar v-for="images in image " :image="`/src/assets/images/${image]}`"  />
+                        <Avatar v-for="images in image " :image="`/src/assets/images/${images}`"  />
                    
                    <Avatar label="+6" shape="circle" />
                 </AvatarGroup>
