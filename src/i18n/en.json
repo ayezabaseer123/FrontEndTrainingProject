@@ -104,6 +104,16 @@
             "placeholders": {
                 "createPost": "What's on your mind?"
             }
+        },
+        "articles": {
+            "labels": {
+                "articles": "Articles",
+                "estTime": "Est. Time:",
+                "noArticles": "No articles found"
+            },
+            "buttons": {
+                "read": "Read"
+            }
         }
     }
 }
