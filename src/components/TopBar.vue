@@ -3,8 +3,13 @@
     <img :src="bitsolLogo" class="logo" alt="bitsol-logo" />
     <div class="logo-nav">
       <ul class="nav-links">
-        <li v-for="item in navItems" :key="item" :class="{ active: item === activeItem }" @click="setActiveItem(item)">
-          {{ item }}
+        <li
+          v-for="item in navItems"
+          :key="item.routeName || item.label"
+          :class="{ active: item.label === activeItem }"
+          @click="setActiveItem(item)"
+        >
+          {{ item.label }}
         </li>
       </ul>
       <Avatar :image="topBarAvatar" shape="square" />
@@ -14,15 +19,35 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import bitsolLogo from '@/assets/images/BitsolBlackLogo.png'
 import Avatar from 'primevue/avatar';
 import topBarAvatar from '@/assets/images/TopBarAvatar.png';
 
-const navItems = ['Feed', 'Chats', 'Jobs', 'Events', 'Articles', 'People', 'Notifications'];
-const activeItem = ref('Feed');
 
-const setActiveItem = (item: string) => {
-  activeItem.value = item;
+interface NavItem {
+  label: string;
+  routeName?: string;
+}
+
+const navItems: NavItem[] = [
+  { label: 'Feed', routeName: 'feedView' },
+  { label: 'Chats' },
+  { label: 'Jobs' },
+  { label: 'Events' },
+  { label: 'Articles', routeName: 'articlesView' },
+  { label: 'People' },
+  { label: 'Notifications' },
+];
+
+const activeItem = ref('Feed');
+const router = useRouter();
+
+const setActiveItem = (item: NavItem) => {
+  activeItem.value = item.label;
+  if (item.routeName) {
+    router.push({ name: item.routeName });
+  }
 };
 
 </script>
