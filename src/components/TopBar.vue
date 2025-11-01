@@ -33,8 +33,8 @@ interface NavItem {
 const navItems: NavItem[] = [
   { label: 'Feed', routeName: 'feedView' },
   { label: 'Chats' },
-  { label: 'Jobs' },
-  { label: 'Events' },
+  { label: 'Jobs', routeName: 'jobsView' },
+  { label: 'Events', routeName: 'eventsView' },
   { label: 'Articles', routeName: 'articlesView' },
   { label: 'People' },
   { label: 'Notifications' },
