@@ -9,5 +9,8 @@ export default {
   authenticated: {
     dashboardView: 'DashboardView',
     feedView: 'FeedView',
+    articlesView: 'ArticlesView',
+    eventsView: 'EventsView',
+    jobsView: 'JobsView',
   },
 }

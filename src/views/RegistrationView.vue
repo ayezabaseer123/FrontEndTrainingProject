@@ -22,7 +22,7 @@
                 </FormWizard>
                 <div class="w-full flex flex-column align-items-center lg:px-24">
                     <template v-if="currentStep === 0">
-                        <Button class="w-full rv-custom-width mt-3 google-btn" @click="signInWithGoogle">
+                        <Button class="w-full rv-custom-width mt-3 google-btn" severity="secondary" outlined @click="signInWithGoogle">
                             {{ $t('local.signup.buttons.continueWithGoogle') }}
                         </Button>
                     </template>

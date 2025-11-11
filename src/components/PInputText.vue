@@ -4,11 +4,8 @@
             <label :for="id" class="input-text-label">{{ label }}</label>
 
             <InputText :id="id" :type="type" :value="modelValue"
-                @input="$emit('update:modelValue', $event.target.value)" :placeholder="placeholder" v-bind="$attrs"
-                :invalid="error" :pt="{
-                    root: { class: 'input-text' }
-
-                }" />
+                @input="handleInput" :placeholder="placeholder" v-bind="$attrs"
+                :invalid="!!error" />
 
             <small class="error">{{ error }}</small>
 
@@ -18,11 +15,8 @@
             <label :for="id" class="input-text-label">{{ label }}</label>
             <IconField>
                 <InputText :id="id" :type="showPassword ? 'text' : type" :value="modelValue"
-                    @input="$emit('update:modelValue', $event.target.value)" :placeholder="placeholder" v-bind="$attrs"
-                    :invalid="error" :pt="{
-                        root: { class: 'input-text' }
-
-                    }" />
+                    @input="handleInput" :placeholder="placeholder" v-bind="$attrs"
+                    :invalid="!!error" />
                 <span v-if="type === 'password'" class="password-toggle" @click="showPassword = !showPassword">
                     {{ showPassword ? 'Hide' : 'Show' }}
                 </span>
@@ -46,38 +40,28 @@ import InputIcon from 'primevue/inputicon';
 import { ref } from 'vue';
 const showPassword = ref(false);
 
-defineProps({
-    id: {
-        type: String,
-        required: true
-    },
-    label: {
-        type: String,
-        required: true
-    },
-    modelValue: {
-        type: String,
-        default: ''
-    },
-    placeholder: {
-        type: String,
-        default: ''
-    },
-    type: {
-        type: String,
-        default: 'text'
-    },
-    error: {
-        type: String,
-        default: ''
-    },
-    iconField: {
-        type: Boolean,
-        default: false
-    }
-});
+interface Props {
+    id: string;
+    label: string;
+    modelValue: string;
+    placeholder?: string;
+    type?: string;
+    error?: string;
+    iconField?: boolean;
+}
 
-defineEmits(['update:modelValue']);
+defineProps<Props>();
+
+const emit = defineEmits<{
+    'update:modelValue': [value: string]
+}>();
+
+const handleInput = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    if (target) {
+        emit('update:modelValue', target.value);
+    }
+};
 </script>
 
 <style scoped lang='scss'>
@@ -85,6 +69,7 @@ defineEmits(['update:modelValue']);
 
 :deep(.p-inputtext) {
     width: 100%;
+    padding: 0.75rem 1.25rem;
 }
 
 .input-text-label {
@@ -96,35 +81,18 @@ defineEmits(['update:modelValue']);
     right: 10px;
 }
 
-
-.input-text {
-    border: 1px solid var(--text-secondary) !important;
-    border-radius: 6px;
-    padding: 16px 20px;
-
-    &:hover,
-    &:focus,
-    &:focus-visible,
-    &:active {
-        border-color: var(--primary) !important;
-        box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
-
-    }
-
-    &:invalid {
-        border-color: red !important
-    }
-}
-
 .password-toggle {
     @extend %caption-regular;
     position: absolute;
     right: 10px;
-    top: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
+    color: var(--p-text-muted-color);
+    z-index: 1;
 }
 
 .error {
-    color: red;
+    color: var(--p-red-500);
 }
 </style>

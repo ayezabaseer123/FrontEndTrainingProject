@@ -11,23 +11,20 @@
                 <Divider class="rv-custom-width" />
                 <Form :validation-schema="validationSchemas" @submit="onSubmit" v-slot="{ meta }">
                     <Field v-slot="{ field, errorMessage }" name="email">
-                        <PTextInput v-bind="field" id="email" :label="$t('local.signup.labels.emailAddress')"
+                        <PInputText v-bind="field" id="email" :label="$t('local.signup.labels.emailAddress')"
                             type="email" :error="errorMessage"
-                            :placeholder="$t('local.signup.placeholders.emailAddress')" />
+                            :placeholder="$t('local.signup.placeholders.emailAddress')" :modelValue="field.value" />
                     </Field>
 
                     <Field v-slot="{ field, errorMessage }" name="password">
-                        <PTextInput class="mt-2" v-bind="field" id="password" :label="$t('local.login.labels.password')"
+                        <PInputText class="mt-2" v-bind="field" id="password" :label="$t('local.login.labels.password')"
                             type="password" :error="errorMessage"
-                            :placeholder="$t('local.signup.placeholders.password')" toggle-password
-                            :icon-field="true" />
+                            :placeholder="$t('local.signup.placeholders.password')" :iconField="true" :modelValue="field.value" />
                     </Field>
                     <p class="lg-forgot-password" @click="goToForgetPasswordScreen">{{
                         $t('local.login.labels.forgotPassword') }}</p>
-                    <Button class="p-button-primary w-full rv-custom-width mt-3" :disabled="!meta.valid" type="submit">
-                        {{ $t('local.login.buttons.login')
-
-                        }}
+                    <Button class="w-full rv-custom-width mt-3" :disabled="!meta.valid" type="submit">
+                        {{ $t('local.login.buttons.login') }}
                     </Button>
                 </Form>
             </div>
@@ -40,7 +37,7 @@
 
 import Divider from 'primevue/divider';
 import { Form, Field } from 'vee-validate'
-import PTextInput from '@/components/PInputText.vue';
+import PInputText from '@/components/PInputText.vue';
 import Button from 'primevue/button'
 import { validationSchemas } from '@/types/login'
 import { useRouter } from 'vue-router';
@@ -53,7 +50,7 @@ const goToForgetPasswordScreen = () => {
 }
 
 //add a submit function
-const onSubmit = async (values: any) => {
+const onSubmit = async (values: Record<string, unknown>) => {
     console.log(values);
     //call the login service
     //redirect to the home page

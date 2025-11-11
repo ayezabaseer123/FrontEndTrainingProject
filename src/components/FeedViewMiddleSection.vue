@@ -87,9 +87,9 @@ const posts = [
 ]
 
 const postActions = [
-  { name: '$like', label: t('local.common.like') },
-  { name: '$comment', label: t('local.common.comment') },
-  { name: '$share', label: t('local.common.share') },
+  { name: '$like' as const, label: t('local.common.like') },
+  { name: '$comment' as const, label: t('local.common.comment') },
+  { name: '$share' as const, label: t('local.common.share') },
 ]
 </script>
 <style lang="scss" scoped>

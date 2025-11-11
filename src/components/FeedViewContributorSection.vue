@@ -1,13 +1,11 @@
 <template>
 
     <div class="feed-view-contributor-section">
-        <Card :pt="{ root: { class: 'feed-view-contributor w-full' } }">
+        <Card class="w-full">
             <template #content>
                 <h1 class="heading-regular">{{ $t('local.feedView.labels.contributors') }}</h1>
                 <AvatarGroup>
-                    <span v-for="image in images" :key="image">
-                        <Avatar :image="`/src/assets/images/${image}`"  />
-                    </span>
+                        <Avatar v-for="image in images" :key='image':image="`/src/assets/images/${image}`"  />
                    <Avatar label="+6" shape="circle" />
                 </AvatarGroup>
 
@@ -28,12 +26,6 @@ const images=['Contributor1.png', 'Contributor2.png', 'Contributor3.png', 'Contr
 </script>
 
 <style scoped lang="scss">
-@use '@/style/theme.scss' as *;
 
-.feed-view-contributor {
-    border-radius: 12px;
-    padding: 20px 16px;
-    background-color: var(--surfaces-default)
-}
 
 </style>

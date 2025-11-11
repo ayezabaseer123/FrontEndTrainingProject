@@ -53,27 +53,9 @@ defineEmits(['update:modelValue']);
 
 :deep(.p-select) {
     width: 100%;
-    border: 1px solid var(--text-secondary);
-    border-radius: 6px;
-    padding: 15px;
-
-    &:hover,
-    &:focus,
-    &:focus-visible,
-    &:active {
-        border-color: var(--primary) !important;
-        box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
-    }
-
-    &.p-invalid {
-        border-color: red !important;
-    }
 }
 
-
-
-
 .error {
-    color: red;
+    color: var(--p-red-500);
 }
 </style>

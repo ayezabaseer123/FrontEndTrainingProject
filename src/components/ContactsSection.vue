@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Card :pt="{ root: { class: 'card-root w-full' } }">
+        <Card class="w-full">
             <template #content>
                 <h1 class="heading-regular">{{ $t('local.feedView.labels.contacts') }}</h1>
                 <div v-for="contact in contacts" :key="contact.name" class="contact-item">
@@ -11,7 +11,7 @@
                     </div>
                     <Icon name='$message' size='25'/>
                 </div>
-                <Button class="p-button-primary w-full">{{$t('local.feedView.buttons.viewAll')}}</Button>
+                <Button class="w-full">{{$t('local.feedView.buttons.viewAll')}}</Button>
             </template>
         </Card>
     </div>
@@ -45,12 +45,6 @@ const contacts = [
 <style scoped lang="scss">
 @use '@/style/theme.scss' as *;
 
-.card-root {
-    border-radius: 12px;
-    padding: 20px 16px;
-    background-color: var(--surfaces-default)
-}
-
 .contact-item {
     display: flex;
     align-items: center;
@@ -64,6 +58,6 @@ const contacts = [
 
 .contact-icon {
     margin-left: auto;
-    color: gray;
+    color: var(--p-text-muted-color);
 }
 </style>

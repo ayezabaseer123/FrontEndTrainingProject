@@ -9,18 +9,17 @@
     <div class="flex flex-column gap-3 lg:rv-custom-width mt-3">
         <!-- Personal info fields -->
         <Field v-slot="{ field, errorMessage }" name="fullName">
-            <PTextInput v-bind="field" id="fullName" :label="$t('local.signup.labels.fullName')"
-                :placeholder="$t('local.signup.placeholders.fullName')" :error="errorMessage" />
+            <PInputText v-bind="field" id="fullName" :label="$t('local.signup.labels.fullName')"
+                :placeholder="$t('local.signup.placeholders.fullName')" :error="errorMessage" :modelValue="field.value" />
         </Field>
         <Field v-slot="{ field, errorMessage }" name="email">
-            <PTextInput v-bind="field" id="email" :label="$t('local.signup.labels.emailAddress')" type="email"
-                :error="errorMessage" :placeholder="$t('local.signup.placeholders.emailAddress')" />
+            <PInputText v-bind="field" id="email" :label="$t('local.signup.labels.emailAddress')" type="email"
+                :error="errorMessage" :placeholder="$t('local.signup.placeholders.emailAddress')" :modelValue="field.value" />
         </Field>
 
         <Field v-slot="{ field, errorMessage }" name="password">
-            <PTextInput v-bind="field" id="password" :label="$t('local.signup.labels.createPassword')" type="password"
-                :error="errorMessage" :placeholder="$t('local.signup.placeholders.password')" toggle-password
-                :icon-field="true" />
+            <PInputText v-bind="field" id="password" :label="$t('local.signup.labels.createPassword')" type="password"
+                :error="errorMessage" :placeholder="$t('local.signup.placeholders.password')" :iconField="true" :modelValue="field.value" />
         </Field>
 
         <div class="flex items-center gap-2">
@@ -35,8 +34,9 @@
 
 <script setup lang="ts">
 import { Field } from 'vee-validate';
-import PTextInput from '@/components/PInputText.vue';
+import PInputText from '@/components/PInputText.vue';
 import Checkbox from 'primevue/checkbox';
+import Divider from 'primevue/divider';
 </script>
 <style scoped lang="scss">
 @use '@/style/theme.scss' as *;
