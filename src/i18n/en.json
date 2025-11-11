@@ -114,6 +114,24 @@
             "buttons": {
                 "read": "Read"
             }
+        },
+        "jobs": {
+            "labels": {
+                "topCompanies": "Top Companies"
+            }
+        },
+        "events": {
+            "labels": {
+                "eventPlanner": "Event Planner",
+                "upcomingEvents": "Upcoming Events"
+            }
+        },
+        "chat": {
+            "labels": {
+                "chats": "Chats",
+                "search": "Search",
+                "typeMessage": "Type a message..."
+            }
         }
     }
 }

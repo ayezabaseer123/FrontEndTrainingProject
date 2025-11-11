@@ -10,5 +10,8 @@ export default {
     dashboardView: 'DashboardView',
     feedView: 'FeedView',
     articlesView: 'ArticlesView',
+    jobsView: 'JobsView',
+    eventsView: 'EventsView',
+    chatsView: 'ChatsView',
   },
 }

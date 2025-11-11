@@ -3,8 +3,13 @@
     <img :src="bitsolLogo" class="logo" alt="bitsol-logo" />
     <div class="logo-nav">
       <ul class="nav-links">
-        <li v-for="item in navItems" :key="item" :class="{ active: item === activeItem }" @click="setActiveItem(item)">
-          {{ item }}
+        <li
+          v-for="item in navItems"
+          :key="item.label"
+          :class="{ active: isActive(item.route) }"
+          @click="navigateTo(item.route)"
+        >
+          {{ item.label }}
         </li>
       </ul>
       <Avatar :image="topBarAvatar" shape="square" />
@@ -13,18 +18,30 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { useRouter, useRoute } from 'vue-router'
 import bitsolLogo from '@/assets/images/BitsolBlackLogo.png'
-import Avatar from 'primevue/avatar';
-import topBarAvatar from '@/assets/images/TopBarAvatar.png';
+import Avatar from 'primevue/avatar'
+import topBarAvatar from '@/assets/images/TopBarAvatar.png'
 
-const navItems = ['Feed', 'Chats', 'Jobs', 'Events', 'Articles', 'People', 'Notifications'];
-const activeItem = ref('Feed');
+const router = useRouter()
+const route = useRoute()
 
-const setActiveItem = (item: string) => {
-  activeItem.value = item;
-};
+const navItems = [
+  { label: 'Feed', route: 'feedView' },
+  { label: 'Chats', route: 'chatsView' },
+  { label: 'Jobs', route: 'jobsView' },
+  { label: 'Events', route: 'eventsView' },
+  { label: 'Articles', route: 'articlesView' },
+  { label: 'Notifications', route: 'feedView' }
+]
 
+const isActive = (routeName: string) => {
+  return route.name === routeName
+}
+
+const navigateTo = (routeName: string) => {
+  router.push({ name: routeName })
+}
 </script>
 
 <style scoped lang="scss">
@@ -49,8 +66,25 @@ const setActiveItem = (item: string) => {
     li {
       margin-left: 20px;
       cursor: pointer;
+      position: relative;
+      padding-bottom: 8px;
+      transition: color 0.2s;
 
       &.active {
+        color: var(--primary);
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background-color: var(--primary);
+        }
+      }
+
+      &:hover {
         color: var(--primary);
       }
     }
