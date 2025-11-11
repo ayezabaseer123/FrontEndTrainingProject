@@ -47,16 +47,6 @@ const router = createRouter({
           name: 'articlesView',
           component: loadView(routes.authenticated.articlesView),
         },
-        {
-          path: 'events',
-          name: 'eventsView',
-          component: loadView(routes.authenticated.eventsView),
-        },
-        {
-          path: 'jobs',
-          name: 'jobsView',
-          component: loadView(routes.authenticated.jobsView),
-        },
       ],
     },
   ],

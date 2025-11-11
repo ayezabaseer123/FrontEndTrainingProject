@@ -114,31 +114,6 @@
             "buttons": {
                 "read": "Read"
             }
-        },
-        "events": {
-            "labels": {
-                "events": "Events",
-                "upcoming": "Upcoming Events",
-                "noEvents": "No events found"
-            },
-            "buttons": {
-                "interested": "Interested"
-            }
-        },
-        "jobs": {
-            "labels": {
-                "jobs": "Jobs",
-                "findJobs": "Find jobs the easy way",
-                "subtitle": "Broaden your job search with curated collections",
-                "filters": "Filters",
-                "jobType": "Job Type",
-                "salaryRange": "Salary Range",
-                "topCompanies": "Top Companies",
-                "noJobs": "No jobs found matching your criteria"
-            },
-            "buttons": {
-                "apply": "Apply Now"
-            }
         }
     }
 }
